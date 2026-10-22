@@ -1,0 +1,919 @@
+# PROJECT: BREW & BITES — COMPLETE SMART CAFÉ MANAGEMENT & ONLINE ORDERING SYSTEM
+
+Act as a senior full-stack developer, UI/UX designer, database architect, payment integration specialist, and restaurant management software engineer.
+
+Build a complete, production-ready website and café management system for **Brew & Bites Café, Alwar, Rajasthan, India**.
+
+This must NOT be just a static website, landing page, or UI prototype. Build a functional system with a customer-facing website, secure admin dashboard, kitchen order management, table reservations, online and offline order handling, payment integration, analytics, inventory management, and customer records.
+
+Use AI tools to implement the entire application. I am a beginner and do not know coding, backend development, database configuration, or server deployment. Explain any essential external setup in simple steps and make the system as easy to operate as possible.
+
+## 1. BRAND IDENTITY AND VISUAL DESIGN
+
+Brand name: Brew & Bites
+
+Business location: Near Wonder Mall, Company Garden Road, Sector 7, Alwar, Rajasthan, India.
+
+Publicly listed contact number: +91 99292 21421. Make it editable from the admin panel.
+
+Currency: INR (₹).
+
+Timezone: Asia/Kolkata.
+
+Language: English by default, with an optional Hindi interface.
+
+Design a premium, modern, aesthetic café website with a warm coffee-inspired identity.
+
+Visual direction:
+- Espresso brown, cream, beige, charcoal black, and subtle caramel accents.
+- Premium coffee photography and appetizing food images.
+- Elegant typography, spacious layouts, rounded cards, subtle shadows, and smooth animations.
+- A cinematic hero section with coffee, food, and café ambience.
+- Tasteful scroll animations, hover effects, and transitions.
+- A mobile-first layout with a premium desktop experience.
+- Attractive loading states, empty states, confirmation screens, and error messages.
+
+Avoid excessive animations, clutter, generic templates, fake reviews, and unnecessary pop-ups.
+
+Create a logo using the words “Brew & Bites” with a tasteful coffee-inspired symbol. Allow the owner to replace it with the official logo.
+
+Use real café and food imagery where available and ensure images load correctly. Do not present generated images as actual photographs of the café.
+
+## 2. WEBSITE STRUCTURE
+
+Create the following customer-facing pages:
+
+1. Home
+2. Our Menu
+3. Online Ordering
+4. Table Reservations
+5. Order Tracking
+6. Offers and Combos
+7. About Us
+8. Gallery
+9. Contact and Location
+10. Customer Login / Account
+11. Privacy Policy
+12. Terms and Conditions
+13. Refund and Cancellation Policy
+
+Include a responsive navigation bar with the café logo, menu links, cart icon, reservation button, and contact information.
+
+The homepage should contain:
+
+- A premium hero section.
+- “Order Online” and “Book a Table” primary buttons.
+- Featured menu items.
+- Popular categories.
+- Today's offers.
+- A table reservation section.
+- Café ambience gallery.
+- Customer reviews only when genuine reviews are available and authorized for display.
+- Google Maps directions.
+- Opening hours managed by the admin.
+- Contact and social media links.
+- A footer with policies and business details.
+
+Use the existing business location as a starting point, but make the exact map pin and address editable and verifiable by the owner.
+
+## 3. DIGITAL MENU AND MENU MANAGEMENT
+
+Create a fully functional digital menu with categories, item images, descriptions, prices, availability, customizations, and search.
+
+Start with the following categories and publicly listed dishes associated with the Alwar café.
+
+### Starters
+- Veg Manchurian Dry
+- Chilli Paneer Dry
+
+### Main Course
+- Chilli Paneer Gravy
+- Veg Manchurian Gravy
+
+### Noodles and Fried Rice
+- Paneer Chowmein
+- Chilli Garlic Noodles
+- Hakka Noodles
+- Veg Chowmein
+- Chinese Fried Rice
+
+### Pizza
+- Paneer Pizza
+- Classic Margherita
+- House Farm Special
+- Tandoori Indian Special
+- Fresh Garden
+- Tangy Spicy
+- Veggie Delight
+- OTC Pizza
+
+### Burgers
+- Cheese Burger
+- Aloo Tikki Burger
+- Veg Burger
+- Paneer Burger
+- Double Tikki Burger
+
+### Momos
+- Tandoori Momos — 8 pieces
+- Veg Steamed Momos
+- Fried Momos — 8 pieces
+
+These are initial menu entries, not a claim that this is the café's complete current menu.
+
+IMPORTANT MENU PRICE RULES:
+
+- Do not invent prices or claim that unverified prices are official.
+- Import a price only when it can be reliably verified against the café's current menu.
+- Save unverified prices as NULL or unset.
+- Items without a confirmed price must remain unpublished or unavailable for ordering until an administrator enters and verifies the price.
+- Do not silently substitute a price of ₹0.
+- Add an admin-controlled function to import additional menu items.
+- Allow the owner to upload a menu PDF, menu photograph, or spreadsheet for easier data entry.
+- Support bulk menu import and export.
+
+For every menu item, allow the admin to manage:
+
+- Item name.
+- Category and subcategory.
+- Description.
+- Food photograph.
+- Base price.
+- Tax category.
+- Portion size.
+- Variants such as regular, medium, and large.
+- Add-ons and extras.
+- Customization charges.
+- Preparation time.
+- Vegetarian / non-vegetarian label, as applicable.
+- Bestseller and featured-item labels.
+- Availability status.
+- Stock availability.
+- Item-specific offers.
+- Dine-in and takeaway availability.
+- Delivery availability.
+- Item display order.
+
+Add filters for price, category, popularity, and availability.
+
+Customers must be able to select quantities, customize eligible items, add special instructions, and add products to their cart.
+
+The cart must calculate item totals and applicable charges correctly.
+
+## 4. CUSTOMER ORDERING SYSTEM
+
+Build a complete ordering workflow.
+
+Support these order types:
+
+A. Dine-in ordering
+B. Takeaway / pickup
+C. Home delivery, if enabled by the owner
+D. Advance orders, if enabled
+E. Walk-in orders entered by staff
+F. Orders placed through a staff-operated POS interface
+
+### Customer checkout
+
+Collect only the information necessary for the selected order type.
+
+For dine-in:
+- Customer name, optional where appropriate.
+- Table number or table assignment.
+- Phone number when needed for order updates.
+- Order items and special instructions.
+
+For takeaway:
+- Customer name.
+- Contact number.
+- Pickup time or estimated pickup time.
+
+For delivery:
+- Customer name.
+- Phone number.
+- Delivery address.
+- Landmark and delivery instructions.
+- Delivery coverage validation.
+- Delivery charge calculated according to the admin's rules.
+
+At checkout, display:
+
+- Item subtotal.
+- Item customizations.
+- Applicable taxes.
+- Discount.
+- Delivery fee, if applicable.
+- Other authorized charges.
+- Final payable amount.
+
+Show a clear order summary before the customer confirms.
+
+Prevent customers from ordering unavailable items or quantities exceeding available stock.
+
+Generate a unique order number for every successfully created order.
+
+Allow customers to track orders using a secure tracking link or their account. Do not expose another customer's details or orders.
+
+### Order status workflow
+
+Use these statuses:
+
+- Awaiting payment.
+- Payment verification pending.
+- Confirmed.
+- Accepted by kitchen.
+- Preparing.
+- Ready for pickup.
+- Ready to serve.
+- Out for delivery.
+- Completed.
+- Cancelled.
+- Refund pending.
+- Refunded.
+
+Use only applicable statuses for each order type.
+
+Display status changes in real time where supported.
+
+Send notifications only when the relevant service is configured. Support email, WhatsApp integration through an authorized provider, or SMS through a supported provider.
+
+Never show an order as paid merely because the customer returned from a payment page.
+
+## 5. ONLINE PAYMENT SYSTEM
+
+Integrate a legitimate payment gateway suitable for an Indian café, such as Razorpay, subject to account eligibility and approval.
+
+Support:
+- UPI.
+- Cards.
+- Net banking.
+- Other payment methods supported by the selected gateway.
+- Cash payment when permitted by the café.
+
+### Payment requirements
+
+- Create payment orders securely through the backend.
+- Verify payment signatures on the server.
+- Verify gateway webhooks and their signatures.
+- Handle duplicate webhook events idempotently.
+- Record gateway transaction IDs and payment status.
+- Handle successful, failed, pending, cancelled, and refunded transactions.
+- Do not store card numbers, CVVs, UPI PINs, or other sensitive payment credentials.
+- Never trust a price or payment status supplied only by the browser.
+- Verify the order total against authoritative server-side prices.
+- Prevent duplicate orders when customers click the payment button multiple times.
+- Provide a clear payment failure and retry process.
+- Make refunds an authorized admin action and reconcile their status with the gateway.
+
+For cash payments, clearly distinguish between payment expected, cash received, and payment verified.
+
+Do not store gateway secret keys in frontend code. Use protected environment variables and backend functions.
+
+If payment credentials are not configured, display a clear setup-required message and allow test-mode development. Never pretend a payment has actually occurred.
+
+## 6. TABLE RESERVATION AND ONLINE BOOKING
+
+Create a real table reservation system.
+
+Customers should be able to select:
+
+- Date.
+- Available time.
+- Number of guests.
+- Preferred seating, if supported.
+- Name.
+- Contact number.
+- Optional occasion or special request.
+
+Features:
+
+- Live availability checks.
+- Configurable table capacity.
+- Configurable reservation duration.
+- Booking confirmation number.
+- Reservation status tracking.
+- Cancellation and rescheduling rules.
+- Reservation reminders when notifications are configured.
+- Admin approval or automatic confirmation, configurable by the owner.
+- Optional reservation deposit, configurable by the owner.
+
+Prevent overlapping reservations and overbooking.
+
+Use server-side transactions or equivalent database safeguards when two customers try to reserve the same table or slot.
+
+Support walk-in reservations created by staff.
+
+The owner must be able to manage tables, seating capacity, operating hours, holidays, unavailable time slots, booking windows, and reservation rules.
+
+Do not confirm a reservation until the required availability checks have passed.
+
+## 7. OFFLINE POS AND WALK-IN CUSTOMER MANAGEMENT
+
+Create a dedicated Point of Sale (POS) dashboard for the café staff.
+
+The POS must support:
+
+- Creating walk-in orders.
+- Selecting dine-in or takeaway.
+- Assigning a table.
+- Adding menu items and modifiers.
+- Changing quantities.
+- Applying authorized discounts.
+- Calculating taxes and totals.
+- Recording cash payments.
+- Recording verified digital payments.
+- Printing or generating receipts.
+- Cancelling orders with the required authorization.
+- Viewing active orders.
+- Completing orders.
+- Opening and closing cashier shifts.
+
+Allow staff to record offline customer orders in the same database as online orders.
+
+Each order must include an order source:
+
+- Website.
+- POS / walk-in.
+- Staff-entered reservation.
+- Other explicitly configured channel.
+
+Track whether the customer is a guest or an identified, consenting customer.
+
+Avoid forcing walk-in customers to create accounts or provide unnecessary personal information.
+
+### Important POS behaviour
+
+If the internet connection fails, clearly show that the system is offline.
+
+If a local offline order queue is implemented, label its orders as locally saved and unsynced until the server confirms receipt. Prevent duplicate synchronization.
+
+Never claim that an offline transaction has updated central sales reports until it has actually synced.
+
+Support receipt printing through compatible browser printing or a documented printer integration. Do not claim direct printer control unless it has been implemented and tested.
+
+## 8. ADMIN DASHBOARD
+
+Create a secure, separate admin dashboard.
+
+Only authorized administrators should be able to access administrative functions.
+
+Include:
+
+### Dashboard overview
+- Today's total sales.
+- Number of orders.
+- Completed orders.
+- Pending orders.
+- Cancelled orders.
+- Outstanding payments.
+- Online versus offline sales.
+- Dine-in versus takeaway versus delivery.
+- Average order value.
+- Bestselling items.
+- Low-stock alerts.
+- Upcoming reservations.
+- Revenue trends.
+
+Provide date filters for today, yesterday, the last 7 days, the last 30 days, and custom ranges.
+
+Make the dashboard visually clean and easy for a non-technical owner to understand.
+
+### Order management
+- View all orders.
+- Search by order ID or permitted customer details.
+- Filter by order status, order source, payment status, and date.
+- Open order details.
+- Update order statuses.
+- Print receipts.
+- Cancel orders with a reason.
+- Initiate authorized refunds.
+- Record cash received.
+- View order history and status changes.
+
+### Menu management
+- Add, edit, hide, publish, and delete menu items.
+- Update prices and descriptions.
+- Upload photographs.
+- Configure item variants and add-ons.
+- Enable or disable individual items.
+- Manage categories.
+- Apply scheduled offers.
+- Import and export the menu.
+
+### Table management
+- Add, edit, and deactivate tables.
+- Configure seating capacity.
+- View current table occupancy.
+- Track reserved, occupied, and available tables.
+- Manage reservations and walk-ins.
+
+### Staff and permissions
+Create role-based access for:
+
+- Owner / Super Admin.
+- Manager.
+- Cashier.
+- Kitchen Staff.
+- Reservation Staff.
+
+Use least-privilege permissions.
+
+For example, kitchen staff can view preparation details and update relevant order statuses but cannot access financial reports, payment secrets, or customer exports.
+
+Cashiers can create POS orders and record permitted payments but cannot change administrator credentials or payment gateway configuration.
+
+The owner must be able to create, deactivate, and manage staff accounts.
+
+## 9. CUSTOMER DATABASE AND CRM
+
+Create a customer management module that consolidates online and offline orders when the customer's identity can be matched reliably and lawfully.
+
+Store only necessary information, such as:
+
+- Customer name.
+- Phone number when provided.
+- Email when provided.
+- Order history.
+- Total historical spend.
+- Number of orders.
+- Most recent order date.
+- Preferred ordering method, where useful.
+- Loyalty points, if enabled.
+- Marketing consent status.
+
+Features:
+
+- Search and filter customers.
+- View a customer's order history.
+- Identify repeat customers.
+- Create customer segments.
+- Record customer feedback.
+- Export permitted customer records with appropriate access controls.
+- Allow corrections and deletion requests in accordance with applicable requirements.
+
+Do not automatically merge customers based on similar names alone.
+
+Do not treat placing an order as consent to marketing messages.
+
+Provide a clear opt-in mechanism for promotional communications and a way to withdraw consent.
+
+Do not expose customer data publicly or place it in publicly accessible files.
+
+## 10. SALES, REVENUE AND BUSINESS ANALYTICS
+
+Build a practical reporting system for the owner.
+
+Include:
+
+### Sales reports
+- Gross order value.
+- Discounts.
+- Taxes collected.
+- Refunds.
+- Net sales.
+- Amount collected.
+- Outstanding amounts.
+- Online payment totals.
+- Cash sales.
+- Other verified payment methods.
+
+Clearly define each metric and prevent double counting.
+
+For example, an order placed today but paid tomorrow must not be counted as money collected today.
+
+### Business insights
+- Daily, weekly, and monthly sales.
+- Sales by hour and day of the week.
+- Most popular menu items.
+- Least ordered items.
+- Category-wise sales.
+- Order-source comparisons.
+- Average bill value.
+- Repeat customer rate.
+- Reservation conversion, where measurable.
+- Cancellation rate.
+- Refund rate.
+- Discount performance.
+
+### Expenses and profitability
+Allow authorized staff to enter expenses such as:
+
+- Ingredients.
+- Packaging.
+- Electricity.
+- Rent.
+- Staff costs.
+- Delivery expenses.
+- Marketing.
+- Maintenance.
+- Other expenses.
+
+Allow the owner to configure ingredient costs and item-level cost estimates.
+
+Calculate estimated gross profit only when cost information is available.
+
+Calculate estimated operating profit only when the required revenue and expense data is available.
+
+Clearly label estimates. Do not describe revenue as profit.
+
+Provide downloadable CSV reports and printable summaries. Use date filters and consistent timezone handling.
+
+## 11. INVENTORY AND INGREDIENT MANAGEMENT
+
+Build an inventory module for ingredients and supplies.
+
+Examples:
+- Coffee beans.
+- Milk.
+- Cheese.
+- Bread.
+- Pizza bases.
+- Vegetables.
+- Sauces.
+- Packaging.
+- Other owner-defined ingredients.
+
+Allow the admin to define:
+
+- Ingredient name.
+- Unit of measurement.
+- Opening stock.
+- Purchases.
+- Current stock.
+- Supplier.
+- Purchase cost.
+- Minimum stock threshold.
+- Expiry date, where applicable.
+- Wastage.
+- Stock adjustments.
+
+Support recipe-based ingredient usage where the owner defines the ingredients and quantities used by each menu item.
+
+When an eligible order is confirmed according to the configured inventory policy, deduct the appropriate stock exactly once.
+
+Handle cancellation and refunds through explicit stock-restoration rules. Avoid restoring ingredients automatically when the food has already been prepared.
+
+Include:
+- Low-stock notifications.
+- Stock movement history.
+- Purchase records.
+- Wastage reports.
+- Supplier records.
+- Manual stock corrections with an audit trail.
+
+Do not invent ingredient recipes or stock quantities. Require the owner to configure them.
+
+## 12. KITCHEN DISPLAY SYSTEM
+
+Create a dedicated kitchen screen that displays incoming orders in real time.
+
+Show:
+- Order number.
+- Order time.
+- Order type.
+- Items and quantities.
+- Customizations.
+- Special instructions.
+- Preparation timer.
+- Current status.
+
+Organize orders into:
+- New.
+- Accepted.
+- Preparing.
+- Ready.
+
+Allow kitchen staff to update preparation status.
+
+Use visible, accessible alerts for new orders.
+
+Avoid duplicate order cards when real-time events are repeated.
+
+Support configurable estimated preparation times and display delays clearly.
+
+## 13. OFFERS, COUPONS AND LOYALTY
+
+Create an offer management system.
+
+Support:
+- Percentage discounts.
+- Fixed-amount discounts.
+- Category-specific offers.
+- Item-specific offers.
+- Minimum order values.
+- Start and end dates.
+- Maximum discount limits.
+- Coupon usage limits.
+- First-order offers.
+- Optional loyalty points.
+- Optional customer referral codes.
+
+Validate all discounts on the backend.
+
+Prevent coupon abuse and ensure that multiple discounts combine only according to the owner's configuration.
+
+Clearly display the final payable amount before payment.
+
+Do not invent active promotions or claim that an offer is available until the owner configures it.
+
+## 14. RECEIPTS AND INVOICES
+
+Generate professional receipts with:
+
+- Brew & Bites branding.
+- Business contact details.
+- Order number.
+- Order date and time.
+- Itemized products.
+- Quantities.
+- Discounts.
+- Applicable tax details.
+- Total payable.
+- Payment method.
+- Payment status.
+- Refund details, where applicable.
+
+Allow receipt printing and PDF generation.
+
+Make tax information configurable and consistent with the business's applicable tax setup.
+
+Do not invent a GSTIN or claim compliance with a particular tax treatment without the owner's verified business information and appropriate implementation.
+
+Keep an auditable record of receipts and refunds.
+
+## 15. NOTIFICATIONS AND COMMUNICATIONS
+
+Provide an extensible notification system for:
+
+- Order confirmation.
+- Payment confirmation.
+- Order preparation updates.
+- Ready-for-pickup notification.
+- Delivery updates, when supported.
+- Reservation confirmation.
+- Reservation reminders.
+- Cancellation and refund updates.
+- Low-stock alerts.
+- Daily owner summaries.
+
+Use configurable email, SMS, or authorized WhatsApp providers.
+
+Provide templates that the owner can edit.
+
+If an external notification service is not configured, show the missing configuration clearly and do not falsely report that a message was sent.
+
+## 16. DATABASE AND BACKEND ARCHITECTURE
+
+Use a real backend and persistent database.
+
+Preferred implementation: React with TypeScript for the frontend, a secure backend, and Supabase for PostgreSQL database storage, authentication, and supported real-time functionality.
+
+If this stack is not supported by the selected builder, choose a reliable equivalent and explain the trade-off.
+
+Create well-structured tables for:
+
+- Users and staff profiles.
+- Roles and permissions.
+- Menu categories.
+- Menu items.
+- Menu variants and add-ons.
+- Orders.
+- Order items.
+- Order status history.
+- Payments.
+- Refunds.
+- Tables.
+- Reservations.
+- Customers.
+- Customer consent.
+- Inventory ingredients.
+- Recipes.
+- Stock movements.
+- Suppliers.
+- Expenses.
+- Coupons.
+- Loyalty transactions.
+- Notifications.
+- Audit logs.
+- Café settings.
+
+Use foreign keys, appropriate indexes, timestamps, constraints, and transactions.
+
+Store money using an appropriate precise representation, not floating-point arithmetic.
+
+Use server-side validation and authorization for every sensitive operation.
+
+Implement Row Level Security (RLS) or equivalent database-level access controls wherever supported.
+
+Public users must never be able to query all customers, payments, reservations, or admin records.
+
+Users must not be able to grant themselves admin privileges.
+
+Never expose service-role keys, payment secrets, or other privileged credentials in frontend bundles.
+
+Include database schema, migrations, environment-variable examples, and setup instructions.
+
+Use development, test, and production environments appropriately.
+
+## 17. SECURITY AND RELIABILITY
+
+Implement:
+
+- Secure authentication.
+- Server-side authorization.
+- Password recovery through the configured authentication provider.
+- Rate limiting for sensitive endpoints.
+- Input validation and output encoding.
+- Protection against common web application vulnerabilities.
+- Secure session management.
+- Audit logs for important administrative actions.
+- Safe error messages without leaking secrets.
+- Database backups or documented backup procedures.
+- Payment webhook verification.
+- Duplicate-order prevention.
+- Reservation conflict prevention.
+- Consistent handling of cancellations and refunds.
+
+Ask for confirmation before destructive actions such as permanently deleting records or changing critical payment settings.
+
+Prefer soft deletion for operational records where appropriate.
+
+Keep an audit trail for financial changes, manual payment adjustments, refunds, price changes, and stock corrections.
+
+## 18. SETTINGS AND BUSINESS CONFIGURATION
+
+Create a settings panel where the owner can update:
+
+- Café name and logo.
+- Address and map location.
+- Phone number.
+- Email.
+- Social media links.
+- Opening hours.
+- Holidays.
+- Menu categories and prices.
+- Tax configuration.
+- Delivery charges and service areas.
+- Reservation rules.
+- Payment gateway configuration status.
+- Notification provider configuration status.
+- Receipt settings.
+- Staff accounts.
+- Order acceptance settings.
+- Estimated preparation times.
+- Currency and timezone.
+- Website theme and homepage sections.
+
+Sensitive settings must require appropriate authorization.
+
+Use a secure, guided setup checklist for missing configuration.
+
+## 19. SEO, PERFORMANCE AND ACCESSIBILITY
+
+Implement:
+- Responsive layouts.
+- SEO-friendly page titles and descriptions.
+- Appropriate canonical URLs.
+- Sitemap and robots configuration.
+- Social sharing metadata.
+- Optimized images.
+- Lazy loading where appropriate.
+- Fast page loads.
+- Accessible labels and keyboard navigation.
+- Clear focus states.
+- Readable contrast.
+- Helpful validation errors.
+- Custom 404 page.
+
+Add local business structured data only using verified information.
+
+Do not publish invented business hours, reviews, ratings, menu prices, or business claims.
+
+Design for mobile users first, because many café customers will order through their phones.
+
+## 20. REQUIRED ADMIN WORKFLOWS
+
+Ensure these complete workflows function correctly:
+
+Workflow A: Online order
+1. Customer selects menu items.
+2. Customer customizes the order.
+3. System calculates the correct total.
+4. Customer submits checkout details.
+5. Payment is securely processed or an allowed alternative is selected.
+6. The backend verifies payment where required.
+7. The order appears in the admin and kitchen dashboards.
+8. Staff prepare the order and update its status.
+9. Customer receives configured notifications.
+10. The completed order appears in the appropriate reports.
+
+Workflow B: Walk-in order
+1. Cashier opens the POS.
+2. Cashier selects items and quantities.
+3. System calculates the bill.
+4. Cashier records the payment.
+5. The order appears in the kitchen dashboard.
+6. Receipt is generated.
+7. The order is included in reports without being counted twice.
+
+Workflow C: Table reservation
+1. Customer selects date, time, and guest count.
+2. Backend checks table availability.
+3. Customer submits reservation details.
+4. Backend prevents conflicts.
+5. Reservation is saved.
+6. Customer receives confirmation according to the configured policy.
+7. Staff can view and manage the reservation.
+
+Workflow D: Menu price update
+1. Admin signs in.
+2. Admin edits an item.
+3. Server validates the price.
+4. The updated price appears on the published menu.
+5. New orders use the current authoritative price.
+6. Existing orders retain their historical item prices.
+
+Workflow E: Refund
+1. Authorized staff opens the order.
+2. Staff requests a refund.
+3. System validates the amount and payment.
+4. The refund is submitted through the gateway when supported.
+5. The actual refund status is reconciled.
+6. The order, payment records, and financial reports reflect the refund correctly.
+
+## 21. TESTING AND ACCEPTANCE CRITERIA
+
+Do not stop after creating a visual mockup.
+
+Test the actual application, including:
+
+- Customer registration and login.
+- Admin authentication and permissions.
+- Menu management.
+- Price changes.
+- Cart calculations.
+- Successful and failed payment flows in test mode.
+- Duplicate payment requests.
+- Duplicate webhook events.
+- Reservation conflicts.
+- Online and offline POS orders.
+- Kitchen order updates.
+- Cancellation and refund flows.
+- Inventory movements.
+- Customer privacy and access controls.
+- CSV exports.
+- Mobile and desktop layouts.
+- Missing environment variables.
+- Database persistence after refreshing the page.
+
+Use sandbox payment credentials for payment tests.
+
+Create demo data only in development or test environments. Do not mix test transactions with actual business reports.
+
+Include a checklist of every feature tested, any known limitations, and every remaining setup step.
+
+## 22. IMPLEMENTATION PRIORITIES
+
+Build in phases, but deliver a coherent working application.
+
+Phase 1: Core website, menu management, database, authentication, online ordering, and POS.
+
+Phase 2: Payment gateway, table reservations, kitchen display, receipts, and order tracking.
+
+Phase 3: Inventory, expenses, customer management, analytics, offers, and notifications.
+
+Phase 4: Security review, testing, performance improvements, deployment, and documentation.
+
+Create the actual application files, backend logic, database schema, and required configuration. Do not merely return a plan, sample screenshots, or pseudocode.
+
+If an external account, API key, payment gateway approval, or deployment configuration is required, identify it clearly and explain the exact setup steps.
+
+Do not claim that a feature is operational until it has been implemented and tested.
+
+## 23. FINAL DELIVERABLES
+
+Deliver:
+
+1. Complete responsive customer website.
+2. Secure admin dashboard.
+3. Functional POS interface.
+4. Kitchen order management screen.
+5. Persistent database and backend.
+6. Online payment integration in test mode, with documented production setup.
+7. Table reservation system.
+8. Online order tracking.
+9. Menu and inventory management.
+10. Sales, expense, and business analytics.
+11. Customer management and permissions.
+12. Receipt printing and PDF support.
+13. Database schema and migration files.
+14. Environment-variable template without real secrets.
+15. Deployment instructions.
+16. Backup and recovery instructions.
+17. Admin user guide written for a non-technical café owner.
+18. Feature-testing report.
+19. A list of all features requiring external accounts or configuration.
+
+The finished product should feel like a professional café operating platform, not just a restaurant template.
+
+Start by inspecting the available development environment, then implement the system. If any requirement cannot be completed with the available tools, state the limitation and provide the closest reliable alternative instead of pretending it works.

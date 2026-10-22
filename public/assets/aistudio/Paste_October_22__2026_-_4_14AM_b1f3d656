@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brew &amp; Bites Café, Alwar</title>
+<meta name="description" content="Brew &amp; Bites Café, Apna Ghar Shalimar, Alwar. Pizza, burgers, momos, noodles and more.">
+<style>
+:root{--bg:#fbf5ea;--card:#fff;--ink:#2b1d14;--muted:#6f5e50;--brand:#4a2c1a;--accent:#c07a3a;--line:#e8dcc8;--ov:rgba(251,245,234,.9);--ov2:rgba(251,245,234,.78);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c130d;--card:#2a1c13;--ink:#f6ebdb;--muted:#c4b19d;--brand:#e9c9a0;--accent:#d9964f;--line:#3d2b1e;--ov:rgba(28,19,13,.88);--ov2:rgba(28,19,13,.74);color-scheme:dark}}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,serif;line-height:1.6}
+h1,h2,h3{color:var(--brand);margin:0 0 .4em}
+a{color:var(--accent)}
+.wrap{max-width:1000px;margin:auto;padding:0 18px}
+#adminBar{background:#2b1d14;color:#f6ebdb;font:.85rem system-ui,sans-serif;padding:8px 18px;display:flex;justify-content:space-between;align-items:center}
+#adminBar button{background:none;border:1px solid #c07a3a;color:#f6ebdb;border-radius:999px;padding:5px 14px;cursor:pointer}
+#adminRoot{background:var(--card);border-bottom:2px solid var(--accent);font-family:system-ui,sans-serif}
+#adminRoot .wrap{padding:18px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:14px}
+.stat{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:var(--brand)}
+.row{display:grid;grid-template-columns:1fr 90px auto auto;gap:6px;margin:5px 0;align-items:center}
+.row.full{grid-template-columns:1fr}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 18px;flex-wrap:wrap}
+.logo{font-size:1.4rem;font-weight:bold;color:var(--brand);text-decoration:none}
+nav a{margin-left:14px;text-decoration:none;color:var(--ink);font:.9rem system-ui,sans-serif}
+#banner{background:var(--accent);color:#fff;text-align:center;padding:8px;font:600 .95rem system-ui,sans-serif;display:none}
+.hero{background:linear-gradient(135deg,#3b2213,#7a4a28 60%,#c07a3a);color:#fff7e8;padding:64px 0;text-align:center}
+.hero h1{color:#fff7e8;font-size:clamp(2rem,6vw,3.4rem)}
+.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:999px;padding:11px 22px;font:600 1rem system-ui,sans-serif;text-decoration:none;cursor:pointer;margin:6px}
+.btn.alt{background:transparent;border:2px solid #fff7e8}
+.btn.sm{padding:6px 12px;font-size:.85rem;margin:2px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+section{padding:40px 0}
+#pagebg{position:fixed;inset:0;z-index:-1;background-size:cover;background-position:center;display:none}
+.haspg header{background:var(--ov2)!important;backdrop-filter:blur(6px)}
+.haspg section>.wrap{background:var(--ov2);backdrop-filter:blur(3px);border-radius:22px;padding:24px 18px}
+.haspg footer{background:var(--ov2);backdrop-filter:blur(3px)}
+.hero{position:relative;overflow:hidden}.hero .wrap{position:relative;z-index:1}.scene{position:absolute;inset:0;width:100%;height:100%}
+#hero{background-image:radial-gradient(circle at 80% 20%,rgba(255,200,120,.28),transparent 45%),radial-gradient(circle at 10% 90%,rgba(0,0,0,.35),transparent 50%),linear-gradient(135deg,#3b2213,#7a4a28 60%,#c07a3a)}
+#menu{background-image:radial-gradient(circle at 12% 20%,rgba(192,122,58,.14) 0 90px,transparent 92px),radial-gradient(circle at 88% 80%,rgba(74,44,26,.10) 0 130px,transparent 132px)}
+#book{background-image:linear-gradient(180deg,rgba(192,122,58,.12),transparent)}
+#visit{background-image:radial-gradient(circle at 85% 15%,rgba(192,122,58,.16) 0 110px,transparent 112px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.item{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.price,.note{font:.85rem system-ui,sans-serif;color:var(--muted)}
+.qty{display:flex;align-items:center;gap:8px;font-family:system-ui,sans-serif}
+.qty button{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+form{display:grid;gap:10px;max-width:480px}
+input,textarea{padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:1rem system-ui,sans-serif;width:100%}
+input[type=checkbox]{width:auto}
+.tbox{border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0;background:var(--bg)}.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 14px}.alt2{background:var(--bg)!important;color:var(--ink)!important;border:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:8px;margin:4px 0;font-size:.85rem}.bar i{display:block;height:16px;background:var(--accent);border-radius:8px;min-width:4px}.bar span:first-child{width:150px;flex:none}.tbl{width:100%;border-collapse:collapse;font-size:.85rem}.tbl td{padding:4px;border-bottom:1px solid var(--line)}select{padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:1rem system-ui,sans-serif}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:no-preference){.hero .wrap{animation:rise .9s ease both}.card{transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.1)}}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.hero h1{letter-spacing:.5px}input[type=search]{border-radius:999px;padding:12px 18px}
+footer{border-top:1px solid var(--line);padding:26px 0;text-align:center}
+#cart{position:sticky;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 18px;display:none;justify-content:space-between;align-items:center;font-family:system-ui,sans-serif}
+</style>
+</head>
+<body>
+<div id="pagebg" aria-hidden="true"></div>
+<div id="adminBar"><span>Brew &amp; Bites admin <b id="bnote"></b></span><button id="adminBtn">ߔ Admin login</button></div>
+<div id="adminRoot" hidden></div>
+<div id="banner"></div>
+<header><div class="wrap"><a class="logo" href="#">☕ Brew &amp; Bites</a>
+<nav><a href="#menu">Menu</a><a href="#book">Book a Table</a><a href="#visit">Visit</a></nav></div></header>
+<div class="hero" id="hero"><svg id="scene" class="scene" viewBox="0 0 1000 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><radialGradient id="gl"><stop offset="0" stop-color="#ffd9a0" stop-opacity=".9"/><stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/></radialGradient></defs><circle cx="820" cy="90" r="170" fill="url(#gl)"/><circle cx="150" cy="330" r="140" fill="url(#gl)" opacity=".5"/><path d="M0 60Q250 130 500 70T1000 60" fill="none" stroke="#1c0f08" stroke-opacity=".5" stroke-width="2"/><g fill="#ffd27a"><circle cx="60" cy="86" r="6"/><circle cx="160" cy="104" r="6"/><circle cx="260" cy="112" r="6"/><circle cx="360" cy="108" r="6"/><circle cx="460" cy="92" r="6"/><circle cx="560" cy="88" r="6"/><circle cx="660" cy="98" r="6"/><circle cx="760" cy="104" r="6"/><circle cx="860" cy="96" r="6"/><circle cx="950" cy="78" r="6"/></g><g transform="translate(90 285)"><path d="M0 0h96l-11 74H11z" fill="#f6ebdb"/><path d="M96 14q32 6 16 36q-10 12-22 8" fill="none" stroke="#f6ebdb" stroke-width="8"/><path d="M28-14q-12-22 0-44M62-14q-12-22 0-44" stroke="#fff7e8" stroke-opacity=".6" stroke-width="5" fill="none" stroke-linecap="round"/></g><g transform="translate(730 300) scale(.8)"><path d="M0 0h96l-11 74H11z" fill="#e9c9a0"/><path d="M96 14q32 6 16 36q-10 12-22 8" fill="none" stroke="#e9c9a0" stroke-width="8"/><path d="M28-14q-12-22 0-44M62-14q-12-22 0-44" stroke="#fff7e8" stroke-opacity=".6" stroke-width="5" fill="none" stroke-linecap="round"/></g><g transform="translate(925 345)"><rect x="-22" y="0" width="44" height="55" rx="7" fill="#8a5a36"/><path d="M0 0q-40-50-10-92M0 0q10-62 42-82M0 0q-22-30-52-30" stroke="#6f9a5a" stroke-width="10" fill="none" stroke-linecap="round"/></g></svg><div class="wrap">
+<h1>Coffee, comfort &amp; good bites</h1>
+<p id="heroAddr"></p>
+<a class="btn" href="#menu">Order Online</a><a class="btn alt" href="#book">Reserve a Table</a><a class="btn alt" id="dirBtn" target="_blank" rel="noopener">Get Directions</a><a class="btn alt" id="callBtn">Call the Café</a>
+</div></div>
+<section id="menu"><div class="wrap"><h2>Our Menu</h2>
+<p class="note">Items show a price only after the café confirms it. Orders are sent on WhatsApp for confirmation.</p>
+<input id="mq" type="search" placeholder="Search dishes…" aria-label="Search the menu"><div id="chips" class="tabs"></div>
+<div id="menuBox"></div></div></section>
+<div id="cart"><span id="cartInfo"></span><button class="btn" id="sendOrder">Send order on WhatsApp</button></div>
+<section id="book"><div class="wrap"><h2>Book a Table</h2>
+<p class="note">Choose your date and time from the calendar and clock. You get a booking code, and the café confirms your table by message. It is not confirmed until then.</p>
+<form id="resForm">
+<input name="name" placeholder="Your name" required autocomplete="name">
+<input name="phone" type="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10-digit mobile number" required autocomplete="tel-national" title="Enter a 10-digit Indian mobile number">
+<label class="note">Date<input class="pick" name="date" type="date" required></label>
+<label class="note">Time (every 15 minutes)<select name="time" id="timeSel" required><option value="">Choose time</option></select></label>
+<label class="note">Guests<select name="guests" required><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></label>
+<textarea name="note" rows="2" placeholder="Occasion or special request (optional)"></textarea>
+<button class="btn" type="submit">Request booking</button></form>
+<div id="resDone" class="card" hidden></div></div></section>
+<section id="visit"><div class="wrap"><h2>Visit Us</h2><div class="card">
+<p><strong>Brew &amp; Bites Café</strong><br><span id="addr"></span></p>
+<p>Phone: <a id="phoneLink" href="#"></a></p>
+<p><a class="btn" id="dirLink" target="_blank" rel="noopener">Get Directions</a><a class="btn" id="callLink">Call the Café</a></p><p class="note" id="emailLine"></p>
+<p class="note" id="hoursNote"></p></div></div></section>
+<footer><div class="wrap note">© Brew &amp; Bites Café, Alwar · Prices in ₹ INR</div></footer>
+<script id="state" type="application/json">{"phone":"919694409598","hours":"daily 10AM TO 11pm","banner":"","cats":[{"name":"Starters","items":[["Veg Manchurian Dry",null,1],["Chilli Paneer Dry",null,1]]},{"name":"Main Course","items":[["Chilli Paneer Gravy",null,1],["Veg Manchurian Gravy",null,1]]},{"name":"Noodles and Fried Rice","items":[["Paneer Chowmein",null,1],["Chilli Garlic Noodles",null,1],["Hakka Noodles",null,1],["Veg Chowmein",null,1],["Chinese Fried Rice",null,1]]},{"name":"Pizza","items":[["Paneer Pizza",null,1],["Classic Margherita",null,1],["House Farm Special",null,1],["Tandoori Indian Special",null,1],["Fresh Garden",null,1],["Tangy Spicy",null,1],["Veggie Delight",null,1],["OTC Pizza",null,1]]},{"name":"Burgers","items":[["Cheese Burger",null,1],["Aloo Tikki Burger",null,1],["Veg Burger",null,1],["Paneer Burger",null,1],["Double Tikki Burger",null,1]]},{"name":"Momos","items":[["Tandoori Momos (8 pcs)",null,1],["Veg Steamed Momos",null,1],["Fried Momos (8 pcs)",null,1]]}],"bg":{}}</script>
+<script>
+const ADMIN_PASSWORD="123456789"; // convenience gate only; real protection = only the page owner can publish
+const S=JSON.parse(document.getElementById("state").textContent);
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let cart={};try{cart=JSON.parse(localStorage.getItem("bbcart")||"{}")||{}}catch(e){}
+let MQ="",MCAT="";
+const DEF={address:"G Tower, Apna Ghar Shalimar, Alwar, Rajasthan 301001",map:"https://www.google.com/maps/search/?api=1&query=G+Tower%2C+Apna+Ghar+Shalimar%2C+Alwar%2C+Rajasthan+301001"};
+function renderPublic(){applyBg();
+ let h="";
+ S.cats.forEach((c,ci)=>{
+  if(!c.items.length||(MCAT&&MCAT!==c.name)||(MQ&&!c.items.some(i=>i[0].toLowerCase().includes(MQ))))return;
+  h+=`<h3>${esc(c.name)}</h3><div class="grid">`;
+  c.items.forEach((it,ii)=>{
+   if(MQ&&!it[0].toLowerCase().includes(MQ))return;const ok=it[1]!=null&&it[2];const k=ci+"-"+ii;
+   h+=`<div class="card item"><div><strong>${esc(it[0])}</strong><div class="price">${!it[2]?"Currently unavailable":it[1]==null?"Price coming soon":"₹"+it[1]}</div></div>`+
+   (ok?`<div class="qty"><button aria-label="Remove one" data-k="${k}" data-d="-1">−</button><span>${cart[k]||0}</span><button aria-label="Add one" data-k="${k}" data-d="1">+</button></div>`:"")+`</div>`;
+  });
+  h+=`</div>`;
+ });
+ $("menuBox").innerHTML=h||'<p class="note">No dishes match your search.</p>';
+ $("chips").innerHTML=['All',...S.cats.filter(c=>c.items.length).map(c=>c.name)].map(n=>{const on=(n==='All'&&!MCAT)||n===MCAT;return `<button class="btn sm${on?'':' alt2'}" data-cat="${esc(n)}">${esc(n)}</button>`}).join("");
+ $("phoneLink").textContent="+"+S.phone.replace(/^(\d{2})(\d{5})(\d{5})$/,"$1 $2 $3");
+ $("phoneLink").href="tel:+"+S.phone;
+ const ad=S.address||DEF.address,mu=String(S.mapUrl||"").startsWith("https://")?S.mapUrl:DEF.map;
+ $("addr").textContent=ad;$("heroAddr").textContent=ad;
+ ["dirLink","dirBtn"].forEach(i=>{$(i).href=mu});["callLink","callBtn"].forEach(i=>{$(i).href="tel:+"+S.phone});
+ $("emailLine").textContent=S.email?"Email: "+S.email:"";
+ $("hoursNote").textContent=S.hours?"Opening hours: "+S.hours:"Opening hours will be added soon.";
+ $("banner").textContent=S.banner;$("banner").style.display=S.banner?"block":"none";
+ let n=0,t=0;for(const k in cart){const[a,b]=k.split("-");const it=S.cats[a]?.items[b];if(it&&it[1]!=null&&cart[k]){n+=cart[k];t+=cart[k]*it[1]}}
+ $("cart").style.display=n?"flex":"none";$("cartInfo").textContent=n+" item(s) · ₹"+t;try{localStorage.setItem("bbcart",JSON.stringify(cart))}catch(e){}
+}
+$("menuBox").addEventListener("click",e=>{const b=e.target.closest("button[data-k]");if(!b)return;
+ cart[b.dataset.k]=Math.max(0,(cart[b.dataset.k]||0)+Number(b.dataset.d));renderPublic();});
+$("sendOrder").onclick=()=>{let l=[],t=0;for(const k in cart){if(!cart[k])continue;const[a,b]=k.split("-");const it=S.cats[a].items[b];l.push(cart[k]+" x "+it[0]);t+=cart[k]*it[1]}
+ window.open("https://wa.me/"+S.phone+"?text="+encodeURIComponent("Hello Brew & Bites, I would like to order:\n"+l.join("\n")+"\nTotal: ₹"+t),"_blank")};
+(function(){const d=new Date(),z=n=>String(n).padStart(2,"0"),iso=x=>x.getFullYear()+"-"+z(x.getMonth()+1)+"-"+z(x.getDate());const el=document.querySelector("#resForm [name=date]");el.min=iso(d);const m=new Date(d);m.setDate(m.getDate()+60);el.max=iso(m)})();
+document.querySelectorAll("#resForm .pick").forEach(i=>{i.addEventListener("click",()=>{try{i.showPicker()}catch(x){}});i.addEventListener("keydown",e=>{if(e.key==="Tab")return;e.preventDefault();if(e.key==="Enter"||e.key===" ")try{i.showPicker()}catch(x){}})});
+const tm=$("timeSel"),dEl=document.querySelector("#resForm [name=date]");
+const fmt=(h,m)=>(h%12||12)+":"+String(m).padStart(2,"0")+(h<12?" AM":" PM");
+function slots(){const a=(S.slotStart||"10:00").split(":").map(Number),b=(S.slotEnd||"23:00").split(":").map(Number),now=new Date(),z=n=>String(n).padStart(2,"0"),today=now.getFullYear()+"-"+z(now.getMonth()+1)+"-"+z(now.getDate()),nm=now.getHours()*60+now.getMinutes();let o='<option value="">Choose time</option>';
+ for(let x=a[0]*60+(a[1]||0);x<=b[0]*60+(b[1]||0);x+=15){if(dEl.value===today&&x<=nm+30)continue;const h=Math.floor(x/60),m=x%60;o+=`<option value="${z(h)}:${z(m)}">${fmt(h,m)}</option>`}
+ const cur=tm.value;tm.innerHTML=o;if([...tm.options].some(x=>x.value===cur))tm.value=cur}
+dEl.addEventListener("change",slots);slots();
+let CDB=null;try{claude.use("db").then(d=>{CDB=d}).catch(()=>{})}catch(x){}
+$("resForm").onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target);
+ const A="ABCDEFGHJKMNPQRSTUVWXYZ23456789";let c="";for(let i=0;i<4;i++)c+=A[Math.floor(Math.random()*A.length)];c="BB-"+c;
+ const msg="Table booking request\nCode: "+c+"\nName: "+f.get("name")+"\nPhone: "+f.get("phone")+"\nDate: "+f.get("date")+"\nTime: "+f.get("time")+"\nGuests: "+f.get("guests")+"\nNote: "+(f.get("note")||"-");
+ const url="https://wa.me/"+S.phone+"?text="+encodeURIComponent(msg);
+ $("resForm").hidden=true;const dn=$("resDone");dn.hidden=false;
+ dn.innerHTML=`<h3>Request sent</h3><p>Your booking code: <strong style="font-size:1.4rem">${c}</strong></p><p class="note">Status: waiting for the café to confirm. If WhatsApp did not open or send, use the button below. You will get a confirmation on ${esc(f.get("phone"))}. Your table is not confirmed until then.</p><a class="btn" href="${url}" target="_blank" rel="noopener">Open WhatsApp again</a>`;
+ if(CDB){try{const U=await claude.use("user"),uid=U&&await U.id();if(!uid)throw 0;const ref=CDB.doc("bookings/"+uid),sn=await ref.get(),dd=sn.exists?sn.data():null,list=dd&&Array.isArray(dd.list)?dd.list.slice():[];list.push({code:c,name:String(f.get("name")),phone:String(f.get("phone")),date:String(f.get("date")),time:String(f.get("time")),guests:Number(f.get("guests")),note:String(f.get("note")||""),t:Date.now(),status:"Pending"});await ref.set({list});dn.querySelector(".note").textContent="Your request has reached the café. Status: waiting for confirmation. Your table is not confirmed until you get a confirmation on "+f.get("phone")+".";return}catch(x){}}
+ window.open(url,"_blank")};
+/* ---------- admin ---------- */
+let authed=false;
+$("adminBtn").onclick=()=>{
+ if(authed){$("adminRoot").hidden=!$("adminRoot").hidden;return}
+ $("adminRoot").hidden=false;
+ $("adminRoot").innerHTML=`<div class="wrap"><h3>Admin login</h3><form id="lf"><input id="pw" type="password" placeholder="Password" autocomplete="current-password" aria-label="Admin password"><button class="btn" type="submit">Log in</button><span class="note" id="lerr"></span></form></div>`;
+ $("lf").onsubmit=e=>{e.preventDefault();if($("pw").value===ADMIN_PASSWORD){authed=true;$("adminBtn").textContent="Admin panel";renderAdmin()}else $("lerr").textContent="Wrong password."};
+};
+function renderAdmin(){
+ const all=S.cats.flatMap(c=>c.items),priced=all.filter(i=>i[1]!=null).length,off=all.filter(i=>!i[2]).length;
+ let h=`<div class="wrap"><h3>Admin panel</h3>${tabsBar()}<div data-tab="overview"><div class="stats"><div class="stat"><b>${all.length}</b>Menu items</div><div class="stat"><b>${priced}</b>With price</div><div class="stat"><b>${all.length-priced}</b>Need price</div><div class="stat"><b>${off}</b>Unavailable</div></div>
+ <p class="note">Customer orders and bookings go to your WhatsApp, so they are not stored here. Edit below, then press Save &amp; Publish.</p>
+ </div><div id="tools"></div><div data-tab="details"><h4>Café details</h4>
+ <div class="row full"><label>WhatsApp / phone (country code first, digits only)<input data-f="phone" value="${esc(S.phone)}"></label></div>
+ <div class="row full"><label>Opening hours<input data-f="hours" value="${esc(S.hours)}" placeholder="e.g. Daily 10 AM – 11 PM"></label></div>
+ <div class="row full"><label>Café address<input data-f="address" value="${esc(S.address||DEF.address)}"></label></div>
+ <div class="row full"><label>Google Maps link (must start with https://)<input data-f="mapUrl" value="${esc(S.mapUrl||DEF.map)}"></label></div>
+ <div class="row full"><label>Email<input data-f="email" type="email" value="${esc(S.email||"")}" placeholder="Optional"></label></div>
+ <div class="row full"><label>Delivery area (note only, delivery is not enabled yet)<input data-f="delivery" value="${esc(S.delivery||"")}" placeholder="e.g. Within 3 km of the café"></label></div>
+ <div class="row" style="grid-template-columns:1fr 1fr"><label>First booking time<input type="time" step="900" data-f="slotStart" value="${esc(S.slotStart||"10:00")}"></label><label>Last booking time<input type="time" step="900" data-f="slotEnd" value="${esc(S.slotEnd||"23:00")}"></label></div>
+ <div class="row full"><label>Offer / announcement banner<input data-f="banner" value="${esc(S.banner)}" placeholder="Leave empty to hide"></label></div>
+ </div><div data-tab="photos">${photosHtml()}</div><div data-tab="menu"><h4>Menu</h4>`;
+ S.cats.forEach((c,ci)=>{
+  h+=`<p><strong>${esc(c.name)}</strong> <button class="btn sm" data-a="delcat" data-c="${ci}">Delete category</button></p>`;
+  c.items.forEach((it,ii)=>{h+=`<div class="row"><input data-c="${ci}" data-i="${ii}" data-x="0" value="${esc(it[0])}" aria-label="Item name"><input data-c="${ci}" data-i="${ii}" data-x="1" type="number" min="0" step="1" value="${it[1]??""}" placeholder="₹" aria-label="Price"><label><input type="checkbox" data-c="${ci}" data-i="${ii}" data-x="2" ${it[2]?"checked":""}> Available</label><button class="btn sm" data-a="del" data-c="${ci}" data-i="${ii}" aria-label="Delete item">✕</button></div>`});
+  h+=`<button class="btn sm" data-a="add" data-c="${ci}">+ Add item</button>`;
+ });
+ h+=`<p><input id="newcat" placeholder="New category name"><button class="btn sm" data-a="addcat">+ Add category</button></p></div>
+ <button class="btn" id="pub">Save &amp; Publish</button><span class="note" id="pubmsg"></span></div>`;
+ $("adminRoot").innerHTML=h;renderTools();showTab();
+}
+$("adminRoot").addEventListener("input",e=>{const t=e.target;
+ if(t.dataset.f){S[t.dataset.f]=t.value.trim();if(t.dataset.f==="phone")S.phone=t.value.replace(/\D/g,"")}
+ else if(t.dataset.x!=null){const it=S.cats[t.dataset.c].items[t.dataset.i],x=+t.dataset.x;
+  it[x]=x===0?t.value:x===1?(t.value===""?null:Math.max(0,Number(t.value))):(t.checked?1:0)}
+ else return;renderPublic();});
+$("adminRoot").addEventListener("click",e=>{const b=e.target.closest("button[data-a]");if(!b)return;const a=b.dataset.a,c=b.dataset.c,i=b.dataset.i;
+ if(a==="add")S.cats[c].items.push(["New item",null,1]);
+ else if(a==="del"){if(!confirm("Delete this item?"))return;S.cats[c].items.splice(i,1)}
+ else if(a==="delcat"){if(!confirm("Delete this whole category?"))return;S.cats.splice(c,1)}
+ else if(a==="addcat"){const n=$("newcat").value.trim();if(!n)return;S.cats.push({name:n,items:[]})}
+ renderPublic();renderAdmin();});
+$("adminRoot").addEventListener("click",async e=>{if(e.target.id!=="pub")return;
+ const m=$("pubmsg");m.textContent=" Publishing…";
+ try{const a=await claude.use("artifact");if(!a){m.textContent=" Only the page owner can publish. Open this page while signed in to claude.ai.";return}
+  const c=document.documentElement.cloneNode(true);
+  c.querySelector("#menuBox").innerHTML="";c.querySelector("#adminRoot").innerHTML="";c.querySelector("#adminRoot").setAttribute("hidden","");
+  c.querySelector("#adminBtn").textContent="ߔ Admin login";c.querySelector("#cart").removeAttribute("style");c.querySelector("#banner").removeAttribute("style");
+  c.querySelector("#state").textContent=JSON.stringify(S).replace(/</g,"\\u003c");
+  await a.publish("<!DOCTYPE html>\n"+c.outerHTML);
+ }catch(err){m.textContent=" Could not publish: "+(err&&err.message||err.code||"error")}});
+/* ---------- offline orders, payments, popularity ---------- */
+let ORDERS=[],DB=null,sub=false,dbMsg="",DRAFT={lines:[],type:"Dine-in",table:"",pay:"Cash",sel:"",qty:1,name:"",price:""};
+const inr=n=>"₹"+Number(n||0).toLocaleString("en-IN");
+async function startDb(){if(sub)return;sub=true;
+ try{DB=await claude.use("db")}catch(e){DB=null}
+ if(!DB){dbMsg="Sign in to claude.ai as the page owner to save and see orders.";renderTools();return}
+ DB.collection("bookings").limit(500).onSnapshot(s=>{const prev=BOOKS.filter(b=>b.status==="Pending").length;BOOKS=s.docs.flatMap(d=>((d.data().list)||[]).map((b,i)=>({...b,id:d.id,idx:i})));const n=BOOKS.filter(b=>b.status==="Pending").length;$("bnote").textContent=n?"ߔ "+n+" new booking"+(n>1?"s":"")+" waiting":"";if(n>prev&&BOOKSLOADED)beep();BOOKSLOADED=true;renderTools()},e=>{});DB.collection("orders").orderBy("t","desc").limit(500).onSnapshot(s=>{ORDERS=s.docs.map(d=>({id:d.id,...d.data()}));renderTools()},e=>{dbMsg="Could not load orders ("+(e.code||"error")+").";renderTools()})}
+function renderTools(){const el=$("tools");if(!el)return;startDb();
+ const opts=S.cats.flatMap((c,ci)=>c.items.map((it,ii)=>[ci+"-"+ii,it])).filter(([k,it])=>it[1]!=null&&it[2]);
+ const dt=DRAFT.lines.reduce((a,l)=>a+l[1]*l[2],0);
+ const by={},pop={};let sales=0,due=0;
+ ORDERS.forEach(o=>{if(o.paid){by[o.pay]=(by[o.pay]||0)+o.total;sales+=o.total}else due+=o.total;o.lines.forEach(l=>pop[l[0]]=(pop[l[0]]||0)+l[1])});
+ const top=Object.entries(pop).sort((a,b)=>b[1]-a[1]).slice(0,8),mx=top[0]?top[0][1]:1;
+ const sel=(v,a)=>v===a?" selected":"";
+ el.innerHTML=`${dbMsg?`<p class="note">${esc(dbMsg)}</p>`:""}
+ <div class="tbox" data-tab="offline"><h4>Offline order</h4>
+ <div class="row full"><input id="dName" list="dl" placeholder="Item name (type, or pick from menu)" value="${esc(DRAFT.name)}" aria-label="Item name"><datalist id="dl">${S.cats.flatMap(c=>c.items).map(i=>`<option value="${esc(i[0])}">`).join("")}</datalist></div>
+ <div class="row"><input id="dPrice" type="number" min="0" placeholder="Price ₹" value="${esc(DRAFT.price)}" aria-label="Price"><input id="dQty" type="number" min="1" value="${DRAFT.qty}" aria-label="Quantity"><button class="btn sm" data-t="addline">Add item</button><span></span></div>
+ ${DRAFT.lines.map((l,i)=>`<div class="bar"><span>${l[1]} x ${esc(l[0])}</span><span>${inr(l[1]*l[2])}</span><button class="btn sm" data-t="rmline" data-i="${i}" aria-label="Remove line">✕</button></div>`).join("")}
+ <div class="row"><select id="dType" aria-label="Order type"><option${sel(DRAFT.type,"Dine-in")}>Dine-in</option><option${sel(DRAFT.type,"Takeaway")}>Takeaway</option></select><input id="dTable" placeholder="Table (dine-in)" value="${esc(DRAFT.table)}" aria-label="Table"><select id="dPay" aria-label="Payment"><option${sel(DRAFT.pay,"Cash")}>Cash</option><option${sel(DRAFT.pay,"UPI")}>UPI</option><option${sel(DRAFT.pay,"Card")}>Card</option><option${sel(DRAFT.pay,"Unpaid")}>Unpaid</option></select><span></span></div>
+ <p><strong>Total ${inr(dt)}</strong> <button class="btn sm" data-t="save"${DB&&DRAFT.lines.length?"":" disabled"}>Save order</button></p>
+ <p class="note">Only orders you enter here are stored. Website orders go to WhatsApp, so add them here too if you want them in your totals.</p></div>
+ <div class="tbox" data-tab="payments"><h4>Payments</h4>
+ <div class="stats"><div class="stat"><b>${inr(sales)}</b>Received</div><div class="stat"><b>${inr(due)}</b>Unpaid</div>${["Cash","UPI","Card"].map(m=>`<div class="stat"><b>${inr(by[m])}</b>${m}</div>`).join("")}</div>
+ <table class="tbl">${ORDERS.slice(0,10).map(o=>`<tr><td>${new Date(o.t).toLocaleString("en-IN",{timeZone:"Asia/Kolkata",dateStyle:"short",timeStyle:"short"})}</td><td>${esc(o.type)}${o.table?" · T"+esc(o.table):""}</td><td>${inr(o.total)}</td><td>${o.paid?esc(o.pay)+" ✓":`<button class="btn sm" data-t="paid" data-id="${esc(o.id)}">Mark paid (cash)</button>`}</td></tr>`).join("")||"<tr><td>No orders yet.</td></tr>"}</table>
+ <p class="note">Online card/UPI checkout is not connected yet. This records payments you collect in person.</p></div>
+ <div class="tbox" data-tab="overview"><h4>Reset sales data</h4><p class="note">Deletes all saved offline orders, so Payments totals and the Most ordered chart go back to ₹0. This cannot be undone. Menu, prices and settings are not touched.</p><label class="note"><input type="checkbox" id="rsB"> Also delete all bookings</label><input id="rsT" placeholder="Type RESET to confirm" aria-label="Type RESET to confirm"><p><button class="btn sm" data-r="go"${DB?"":" disabled"}>Reset to zero</button> <span class="note" id="rsMsg"></span></p></div>${bookingsHtml()}<div class="tbox" data-tab="popular"><h4>Most ordered items</h4>${top.map(([n,q])=>`<div class="bar"><span>${esc(n)}</span><i style="width:${Math.round(q/mx*60)+4}%"></i><span>${q}</span></div>`).join("")||'<p class="note">The chart appears after you save orders.</p>'}</div>`;showTab();}
+$("adminRoot").addEventListener("change",e=>{const t=e.target;if(t.id==="dName"){DRAFT.name=t.value;const m=S.cats.flatMap(c=>c.items).find(i=>i[0]===t.value&&i[1]!=null);if(m){DRAFT.price=String(m[1]);const q=$("dPrice");if(q)q.value=DRAFT.price}}else if(t.id==="dPrice")DRAFT.price=t.value;else if(t.id==="dQty")DRAFT.qty=Math.max(1,parseInt(t.value)||1);else if(t.id==="dType")DRAFT.type=t.value;else if(t.id==="dPay")DRAFT.pay=t.value});
+$("adminRoot").addEventListener("input",e=>{if(e.target.id==="dTable")DRAFT.table=e.target.value});
+$("adminRoot").addEventListener("click",async e=>{const b=e.target.closest("button[data-t]");if(!b)return;const a=b.dataset.t;
+ if(a==="addline"){const nm=DRAFT.name.trim(),pr=Number(DRAFT.price);if(!nm||DRAFT.price===""||!(pr>=0))return;DRAFT.lines.push([nm,DRAFT.qty,pr]);DRAFT.name="";DRAFT.price="";DRAFT.qty=1;renderTools()}
+ else if(a==="rmline"){DRAFT.lines.splice(b.dataset.i,1);renderTools()}
+ else if(a==="save"&&DB&&DRAFT.lines.length){b.disabled=true;try{await DB.collection("orders").add({t:Date.now(),src:"offline",type:DRAFT.type,table:DRAFT.table.trim(),pay:DRAFT.pay,paid:DRAFT.pay!=="Unpaid",lines:DRAFT.lines,total:DRAFT.lines.reduce((s,l)=>s+l[1]*l[2],0)});DRAFT.lines=[];DRAFT.table="";dbMsg=""}catch(x){dbMsg="Could not save order."}renderTools()}
+ else if(a==="paid"&&DB){try{await DB.collection("orders").doc(b.dataset.id).update({paid:true,pay:"Cash"})}catch(x){dbMsg="Could not update payment.";renderTools()}}});
+let ATAB="overview";const TABS=[["overview","Overview"],["offline","Offline order"],["bookings","Bookings"],["payments","Payments"],["popular","Popularity"],["photos","Photos"],["menu","Menu"],["details","Café details"]];
+function tabsBar(){return '<div class="tabs" role="tablist">'+TABS.map(([k,l])=>`<button class="btn sm${k===ATAB?"":" alt2"}" data-g="${k}" role="tab">${l}</button>`).join("")+'</div>'}
+function showTab(){document.querySelectorAll("#adminRoot [data-tab]").forEach(x=>x.hidden=x.dataset.tab!==ATAB);document.querySelectorAll("#adminRoot button[data-g]").forEach(b=>b.classList.toggle("alt2",b.dataset.g!==ATAB))}
+$("adminRoot").addEventListener("click",e=>{const b=e.target.closest("button[data-g]");if(b){ATAB=b.dataset.g;showTab()}});
+const BGS=[["page","Whole page background (behind everything)","pagebg"],["hero","Top banner (hero)","hero"],["menu","Menu section","menu"],["book","Booking section","book"],["visit","Visit section","visit"]];
+const okId=v=>typeof v==="string"&&/^[0-9a-f]{32}$/.test(v);
+function applyBg(){const pg=$("pagebg"),pv=["page","hero","menu","book","visit"].map(k=>S.bg&&S.bg[k]).find(okId);if(pg){if(pv){pg.style.display="block";pg.style.backgroundImage="linear-gradient(rgba(20,10,5,.25),rgba(20,10,5,.4)),url(/_blob/"+pv+")"}else pg.style.display="none"}document.body.classList.toggle("haspg",!!pv);const sc=$("scene");if(sc)sc.style.display=okId(S.bg&&S.bg.hero)?"none":"block";BGS.forEach(([k,,id])=>{const el=$(id);if(!el||k==="page")return;const v=S.bg&&S.bg[k];
+ if(okId(v)){el.style.backgroundImage=(k==="hero"?"linear-gradient(rgba(30,16,8,.55),rgba(30,16,8,.7))":"linear-gradient(var(--ov),var(--ov))")+",url(/_blob/"+v+")";el.style.backgroundSize="cover";el.style.backgroundPosition="center"}
+ else{el.style.backgroundImage="";el.style.backgroundSize="";el.style.backgroundPosition=""}})}
+function photosHtml(){return '<h4>Background photos</h4><p class="note">Upload your own café or food photos for each part of the site. They are resized automatically. Press Save &amp; Publish afterwards to make them live.</p><p class="note" id="phmsg"></p>'+BGS.map(([k,l])=>{const v=S.bg&&S.bg[k];
+ return `<div class="tbox"><strong>${l}</strong>${okId(v)?`<img src="/_blob/${v}" alt="" style="max-width:200px;border-radius:10px;display:block;margin:6px 0">`:'<p class="note">Using the default design.</p>'}<input type="file" accept="image/*" data-bg="${k}" aria-label="Upload photo for ${l}"> ${okId(v)?`<button class="btn sm" data-p="rm" data-k="${k}">Remove</button>`:""}</div>`}).join("")}
+$("adminRoot").addEventListener("change",async e=>{const f=e.target;if(!f.dataset||!f.dataset.bg||!f.files[0])return;const m=$("phmsg");m.textContent="Uploading…";
+ try{const as=await claude.use("assets");if(!as){m.textContent="Only the page owner (signed in to claude.ai) can upload photos.";return}
+  const bmp=await createImageBitmap(f.files[0]);const sc=Math.min(1,1600/Math.max(bmp.width,bmp.height));
+  const cv=document.createElement("canvas");cv.width=Math.round(bmp.width*sc);cv.height=Math.round(bmp.height*sc);cv.getContext("2d").drawImage(bmp,0,0,cv.width,cv.height);
+  const blob=await new Promise(r=>cv.toBlob(r,"image/jpeg",.82));const r=await as.upload(blob);
+  S.bg=S.bg||{};S.bg[f.dataset.bg]=r.id;applyBg();renderAdmin();$("phmsg").textContent="Uploaded. Press Save & Publish to make it live.";
+ }catch(x){m.textContent="Upload failed: "+(x&&x.message||x.code||"error")}});
+$("adminRoot").addEventListener("click",e=>{const b=e.target.closest("button[data-p]");if(!b)return;if(S.bg)delete S.bg[b.dataset.k];applyBg();renderAdmin()});
+$("adminRoot").addEventListener("click",async e=>{const b=e.target.closest("button[data-r]");if(!b||!DB)return;const m=$("rsMsg");
+ if($("rsT").value.trim()!=="RESET"){m.textContent="Type RESET in the box first.";return}
+ if(!confirm("Delete all orders and payment records? This cannot be undone."))return;
+ const wb=$("rsB").checked;b.disabled=true;m.textContent="Deleting…";
+ try{for(const o of ORDERS.slice())await DB.collection("orders").doc(o.id).delete();
+  if(wb)for(const id of [...new Set(BOOKS.map(x=>x.id))])await DB.collection("bookings").doc(id).delete();
+  m.textContent="Done. If anything is left, press again."}catch(x){m.textContent="Could not finish. Press again to continue."}
+ b.disabled=false});
+let BOOKSLOADED=false;function beep(){try{const c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator();o.connect(c.destination);o.frequency.value=880;o.start();setTimeout(()=>{o.stop();c.close()},300)}catch(e){}}
+let BOOKS=[];
+function parseBooking(t){const g=k=>{const l=t.split("\n").find(x=>x.trim().toLowerCase().startsWith(k+":"));return l?l.slice(l.indexOf(":")+1).trim():""};
+ return {code:g("code").toUpperCase(),name:g("name"),phone:g("phone").replace(/\D/g,"").slice(-10),date:g("date"),time:g("time"),guests:parseInt(g("guests"))||0,note:g("note")}}
+function bookingsHtml(){const pend=BOOKS.filter(b=>b.status==="Pending").length;
+ const rows=BOOKS.slice().sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time)).map(b=>`<tr><td><strong>${esc(b.code)}</strong></td><td>${esc(b.name)}<br>${esc(b.phone)}</td><td>${esc(b.date)}<br>${esc(b.time)} · ${esc(b.guests)} guests</td><td>${esc(b.status)}</td><td>${b.status==="Pending"?`<button class="btn sm" data-b="confirm" data-id="${esc(b.id)}" data-i="${b.idx}">Confirm</button><button class="btn sm alt2" data-b="decline" data-id="${esc(b.id)}" data-i="${b.idx}">Decline</button>`:""}</td></tr>`).join("");
+ return `<div class="tbox" data-tab="bookings"><h4>Table bookings (${pend} waiting)</h4><p class="note">A customer's request and booking code arrive on your WhatsApp. Paste that message here, then press Confirm. WhatsApp opens with a confirmation message for the customer.</p><textarea id="bPaste" rows="6" placeholder="Paste the booking message here"></textarea><p><button class="btn sm" data-b="add"${DB?"":" disabled"}>Add booking</button> <span class="note" id="bMsg"></span></p><table class="tbl">${rows||"<tr><td>No bookings yet.</td></tr>"}</table></div>`}
+$("adminRoot").addEventListener("click",async e=>{const b=e.target.closest("button[data-b]");if(!b||!DB)return;const a=b.dataset.b,m=$("bMsg");
+ if(a==="add"){const p=parseBooking($("bPaste").value);
+  if(!p.code||!p.name||p.phone.length!==10||!p.date||!p.time){m.textContent="Could not read it. It needs Code, Name, Phone, Date and Time lines.";return}
+  if(BOOKS.some(x=>x.code===p.code)){m.textContent="This booking code is already added.";return}
+  try{await DB.collection("bookings").add({list:[{...p,t:Date.now(),status:"Pending"}]})}catch(x){m.textContent="Could not save booking."}return}
+ const bk=BOOKS.find(x=>x.id===b.dataset.id&&x.idx===Number(b.dataset.i));if(!bk)return;const ok=a==="confirm";
+ const txt=ok?`Hello ${bk.name}, your table at Brew & Bites Café is CONFIRMED. Code: ${bk.code}. Date: ${bk.date}, Time: ${bk.time}, Guests: ${bk.guests}. See you soon!`:`Hello ${bk.name}, sorry, we cannot take your booking ${bk.code} for ${bk.date} ${bk.time}. Please message us to choose another time.`;
+ const w=window.open("about:blank","_blank");
+ try{const lst=BOOKS.filter(x=>x.id===bk.id).sort((p,q)=>p.idx-q.idx).map(({id,idx,...r})=>r);lst[bk.idx].status=ok?"Confirmed":"Declined";await DB.collection("bookings").doc(bk.id).update({list:lst})}catch(x){if(w)w.close();return}
+ if(w)w.location="https://wa.me/91"+bk.phone+"?text="+encodeURIComponent(txt)});
+$("mq").addEventListener("input",e=>{MQ=e.target.value.trim().toLowerCase();renderPublic()});
+$("chips").addEventListener("click",e=>{const b=e.target.closest("button[data-cat]");if(!b)return;MCAT=b.dataset.cat==="All"?"":b.dataset.cat;renderPublic()});
+if(window.IntersectionObserver&&!matchMedia("(prefers-reduced-motion:reduce)").matches){const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.08});document.querySelectorAll("section>.wrap").forEach(w=>{w.classList.add("rv");io.observe(w)})}
+renderPublic();
+</script>
+</body>
+</html>

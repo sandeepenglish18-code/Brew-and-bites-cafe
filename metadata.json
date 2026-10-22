@@ -1,0 +1,6 @@
+{
+  "name": "Brew & Bites Café - Smart Café Management & Online Ordering",
+  "description": "Official website, online ordering, table reservations, staff POS, kitchen display, and complete café management system for Brew & Bites Café, Alwar, Rajasthan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
